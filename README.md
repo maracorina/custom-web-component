@@ -7,6 +7,9 @@ A Web Component allowing you to create editable and expandable lists — with th
 - HTML
 - CSS
 
+![image](https://user-images.githubusercontent.com/49560400/123251969-6ebe3500-d4f4-11eb-8d6e-7ac98a7c85c9.png)
+
+
 ## ✨ Features
 
 This component creates a custom list with a given set of items.
@@ -22,22 +25,25 @@ The user can perform the following actions:
 Can be used to represent lists as : To do lists, Shopping lists, Task list, Step by step plans etc.
 
 Events:
-- *addNewItem*
-  - triggered when a new item is added to the list
-  - must be in editmode
-  - updates list/sublist
-- *selectedItem*
+- *selectItem*
   - triggered when an item from the list is clicked
   - shows sublist
 - *unselectItem*
   - triggered when an item from the list is clicked again
   - toggles back the sublist
+- *setEditMode*
+  - makes list editable or leaves the edit mode
+- *addNewItem*
+  - triggered when a new item is added to the list
+  - must be in edit mode
+  - updates list/sublist
 - *removeItem*
   - triggered when an item from the list is deleted
+  - must be in edit mode
   - updates the list/sublist
 
 ## 🌈 Live Preview
-https://jsfiddle.net/10fgvLua/
+https://jsfiddle.net/scj7kd0z/
 
 ## 🔑 Approach
 It consists of two main technologies, which were used together to create the custom element with encapsulated functionality that can be reused wherever you like without fear of code collisions.
@@ -51,6 +57,26 @@ The approach for implementing the web component looked something like this:
 - Added child elements, event listeners, etc., to the shadow DOM using regular DOM methods.
 - Registered the new custom element using the CustomElementRegistry.define() method, passing it the element name to be defined and the class in which its functionality was specified.
 
+##💻 Usage
+Include the Java script main.js and use the tag <editable-list> in your html with the following properties:
+
+- title - the component title: string
+- list-item-0, list-item-1, ... - the initial list entries: each must be a string
+- add-item-text - the text input for new entries label: string
+
+Usage Examples
+Builder
+
+    <script type="text/javascript" src="main.js" defer></script>
+    <editable-list
+        title="TODO LIST"
+        list-item-0="First item on the list"
+        list-item-1="Second item on the list"
+        list-item-2="Third item on the list"
+        list-item-3="Fourth item on the list"
+        list-item-4="Fifth item on the list"
+        add-item-text="Add new list item:">
+    </editable-list>
 
 ## 👤 Author
 
