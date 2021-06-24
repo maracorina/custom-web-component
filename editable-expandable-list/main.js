@@ -61,6 +61,11 @@
       divs1.forEach(div1 => {
                 div1.style.display = 'none';
       });
+      //initializing the remove buttons display values
+      const buttons = Array.from(shadow.querySelectorAll('.editable-list-remove-item'));
+      buttons.forEach(button => {
+                button.style.display = 'none';
+      });
         
       //binding the onchange event for the checkbox to the corresponding function
       const checkbox = shadow.querySelector(".togBtn");
@@ -71,6 +76,14 @@
             div.style.display = 'none';
         } else {
              div.style.display = 'block';
+        }
+      });
+      const removeButtons = Array.from(shadow.querySelectorAll('.editable-list-remove-item'));
+      removeButtons.forEach(removeButton => {
+        if(removeButton.style.display == 'inline-block'){
+            removeButton.style.display = 'none';
+        } else {
+            removeButton.style.display = 'inline-block';
         }
       });
       }, false);
@@ -156,7 +169,7 @@
       this.handleAddItemListeners(addElementButtons);
     
       /* Get all elements with class="close" */
-      var closebtns = document.getElementsByClassName("close");
+      const closebtns = [...document.getElementsByClassName("close")];
       closebtns.forEach(element => {
         element.addEventListener('click', function() {
             this.parentElement.style.display = 'none';
