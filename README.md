@@ -57,7 +57,7 @@ The approach for implementing the web component looked something like this:
 - Added child elements, event listeners, etc., to the shadow DOM using regular DOM methods.
 - Registered the new custom element using the CustomElementRegistry.define() method, passing it the element name to be defined and the class in which its functionality was specified.
 
-##💻 Usage
+## 💻 Usage
 Include the Java script main.js and use the tag <editable-list> in your html with the following properties:
 
 - title - the component title: string
